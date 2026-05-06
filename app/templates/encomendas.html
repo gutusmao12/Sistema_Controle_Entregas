@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Encomendas{% endblock %}
+
+{% block content %}
+<section class="card">
+    <div class="page-title">
+        <h2>Encomendas Registradas</h2>
+        <a href="/encomendas/nova" class="btn">Nova Encomenda</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Destinatário</th>
+                <th>Bloco</th>
+                <th>Apartamento</th>
+                <th>Descrição</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for encomenda in encomendas %}
+            <tr>
+                <td>{{ encomenda.destinatario }}</td>
+                <td>{{ encomenda.bloco }}</td>
+                <td>{{ encomenda.apartamento }}</td>
+                <td>{{ encomenda.descricao }}</td>
+                <td>
+                    {% if encomenda.retirado %}
+                        <span class="status entregue">Retirada</span>
+                    {% else %}
+                        <span class="status pendente">Pendente</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if not encomenda.retirado %}
+                        <a
+                            href="/encomendas/retirar/{{ encomenda.id }}"
+                            class="btn-retirar"
+                        >
+                            Retirada realizada
+                        </a>
+                    {% else %}
+                        —
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

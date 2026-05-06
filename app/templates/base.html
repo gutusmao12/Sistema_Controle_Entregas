@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Controle de Entregas{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Sistema de Controle de Entregas</h1>
+
+        <nav>
+            <a href="/">Início</a>
+            <a href="/encomendas">Encomendas</a>
+            <a href="/encomendas/nova">Nova Encomenda</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+</body>
+</html>
