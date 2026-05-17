@@ -4,10 +4,46 @@
 
 {% block content %}
 <section class="card">
+
     <div class="page-title">
         <h2>Encomendas Registradas</h2>
-        <a href="/encomendas/nova" class="btn">Nova Encomenda</a>
+
+        <a href="/encomendas/nova" class="btn">
+            Nova Encomenda
+        </a>
     </div>
+
+    <form method="GET" class="filters">
+        <input
+            type="text"
+            name="busca"
+            placeholder="Buscar por morador"
+            value="{{ busca or '' }}"
+        >
+
+        <select name="status">
+            <option value="">Todos</option>
+            <option value="pendentes" {% if status == 'pendentes' %}selected{% endif %}>
+                Pendentes
+            </option>
+            <option value="retiradas" {% if status == 'retiradas' %}selected{% endif %}>
+                Retiradas
+            </option>
+        </select>
+
+        <select name="ordem">
+            <option value="recentes" {% if ordem == 'recentes' %}selected{% endif %}>
+                Mais recentes
+            </option>
+            <option value="antigas" {% if ordem == 'antigas' %}selected{% endif %}>
+                Mais antigas
+            </option>
+        </select>
+
+        <button type="submit">Filtrar</button>
+
+        <a href="/encomendas" class="btn-limpar">Limpar</a>
+    </form>
 
     <table>
         <thead>
@@ -16,6 +52,7 @@
                 <th>Bloco</th>
                 <th>Apartamento</th>
                 <th>Descrição</th>
+                <th>Recebimento</th>
                 <th>Status</th>
                 <th>Ações</th>
             </tr>
@@ -28,6 +65,9 @@
                 <td>{{ encomenda.bloco }}</td>
                 <td>{{ encomenda.apartamento }}</td>
                 <td>{{ encomenda.descricao }}</td>
+                <td>
+                    {{ encomenda.data_recebimento.strftime('%d/%m/%Y %H:%M') }}
+                </td>
                 <td>
                     {% if encomenda.retirado %}
                         <span class="status entregue">Retirada</span>

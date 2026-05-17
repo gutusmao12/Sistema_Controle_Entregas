@@ -126,13 +126,139 @@ td {
 .btn-retirar {
     background: #16a34a;
     color: white;
-    padding: 8px 12px;
+    padding: 8px 14px;
     border-radius: 8px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .btn-retirar:hover {
     background: #15803d;
+}
+
+.filters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.filters input {
+    min-width: 240px;
+}
+
+.filters button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filters button:hover {
+    background: #1d4ed8;
+}
+
+.btn-limpar {
+    background: #6b7280;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-limpar:hover {
+    background: #4b5563;
+}
+
+table th:last-child,
+table td:last-child {
+    min-width: 160px;
+}
+
+.form button:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.circle-card {
+    text-align: center;
+}
+
+.circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.circle.total {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.circle.pendentes {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.circle.retiradas {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.logout-btn {
+    background: #dc2626;
+    color: white !important;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.logout-btn:hover {
+    background: #b91c1c;
 }

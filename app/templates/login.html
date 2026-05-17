@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<section class="card login-card">
+    <h2>Login da Portaria</h2>
+
+    <form method="POST" class="form">
+        <label>Condomínio</label>
+
+    <select name="condominio" required>
+        <option value="">Selecione</option>
+        <option value="Topázio">Condomínio Topázio</option>
+    </select>
+    
+        <label>E-mail</label>
+        <input type="email" name="email" required>
+
+        <label>Senha</label>
+        <input type="password" name="senha" required>
+
+        <button type="submit">Entrar</button>
+    </form>
+</section>
+{% endblock %}

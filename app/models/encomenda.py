@@ -1,5 +1,6 @@
 from app.database.db import db
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 class Encomenda(db.Model):
     __tablename__ = 'encomendas'
@@ -32,5 +33,5 @@ class Encomenda(db.Model):
 
     data_recebimento = db.Column(
         db.DateTime,
-        default=datetime.utcnow
+        default=lambda: datetime.now(ZoneInfo("America/Sao_Paulo")).replace(tzinfo=None)
     )

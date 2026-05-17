@@ -8,18 +8,46 @@
 
     <form method="POST" class="form">
         <label>Destinatário</label>
-        <input type="text" name="destinatario" required>
+        <input type="text" id="destinatario" name="destinatario" required>
 
         <label>Bloco</label>
-        <input type="text" name="bloco" required>
+        <input type="text" id="bloco" name="bloco" required>
 
         <label>Apartamento</label>
-        <input type="text" name="apartamento" required>
+        <input type="text" id="apartamento" name="apartamento" required>
 
         <label>Descrição</label>
-        <input type="text" name="descricao">
+        <input type="text" id="descricao" name="descricao" required>
 
-        <button type="submit">Salvar Encomenda</button>
+        <button type="submit" id="btn-salvar" disabled>
+            Salvar Encomenda
+        </button>
     </form>
 </section>
+
+<script>
+
+    const campos = [
+        document.getElementById('destinatario'),
+        document.getElementById('bloco'),
+        document.getElementById('apartamento'),
+        document.getElementById('descricao')
+    ];
+
+    const botao = document.getElementById('btn-salvar');
+
+    function validarFormulario() {
+
+        const todosPreenchidos = campos.every(
+            campo => campo.value.trim() !== ''
+        );
+
+        botao.disabled = !todosPreenchidos;
+    }
+
+    campos.forEach(campo => {
+        campo.addEventListener('input', validarFormulario);
+    });
+
+</script>
 {% endblock %}

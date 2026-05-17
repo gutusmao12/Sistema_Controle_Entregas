@@ -9,13 +9,29 @@
 <body>
 
     <header class="header">
+
         <h1>Sistema de Controle de Entregas</h1>
 
-        <nav>
-            <a href="/">Início</a>
-            <a href="/encomendas">Encomendas</a>
-            <a href="/encomendas/nova">Nova Encomenda</a>
+        {% if current_user.is_authenticated %}
+
+        <nav class="navbar">
+
+            <div class="nav-left">
+                <a href="/">Início</a>
+                <a href="/encomendas">Encomendas</a>
+                <a href="/encomendas/nova">Nova Encomenda</a>
+            </div>
+
+            <div class="nav-right">
+                <a href="/logout" class="logout-btn">
+                    Logout
+                </a>
+            </div>
+
         </nav>
+
+        {% endif %}
+
     </header>
 
     <main class="container">
